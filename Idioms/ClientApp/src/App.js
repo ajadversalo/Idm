@@ -1,9 +1,44 @@
-import React, { useEffect, useState }from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Typography from '@material-ui/core/Typography';
+import Switch from '@material-ui/core/Switch';
+import Container from '@material-ui/core/Container';
+import Button from '@material-ui/core/Button';
+import Collapse from '@material-ui/core/Collapse';
+import Paper from '@material-ui/core/Paper';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        '& > *': {
+            margin: theme.spacing(1),
+            width: '25ch',
+            height: '100vh'
+        },
+    },
+    paper: {
+        margin: theme.spacing(1),
+        padding: '2rem'
+    },
+    table: {
+        minWidth: 650,
+    },
+}));
 
 function App() {
+    const classes = useStyles();
+    const [searchText, setSearchText] = useState(null);
     const [idioms, setIdioms] = useState([]);
+    const [allIdioms, setAllIdioms] = useState([]);
+    const [checked, setChecked] = useState(false);
 
     useEffect(() => {
         fetch('https://localhost:44380/api/idiom/GetIdioms', {
@@ -22,23 +57,78 @@ function App() {
         }
     }, [idioms]);
 
+    const handleSearchChange = () => {
+
+    }
+
+    const handleChange = () => {
+
+    }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <CssBaseline>
+          <Container maxWidth="md" style={{ height: '80vh' }}>
+              <Paper elevation={4} className={classes.paper} style={{ height: '100%' }}>
+                  <TextField id="standard-basic" label="Search title, meaning or keyword" style={{ width: '100%' }} onChange={handleSearchChange} />
+                  <div style={{ width: '100%', textAlign: 'right' }}>
+                      <FormControlLabel
+                          control={<Switch checked={checked} onChange={handleChange} />}
+                          label="A-Z Index"
+                      />
+                  </div>
+                  <Collapse in={checked}>
+                      <div style={{ textAlign: 'center' }}>
+                          <Button>A</Button>
+                          <Button>B</Button>
+                          <Button>C</Button>
+                          <Button>D</Button>
+                          <Button>E</Button>
+                          <Button>F</Button>
+                          <Button>G</Button>
+                          <Button>H</Button>
+                          <Button>I</Button>
+                          <Button>J</Button>
+                          <Button>K</Button>
+                          <Button>L</Button>
+                          <Button>M</Button>
+                          <Button>N</Button>
+                          <Button>O</Button>
+                          <Button>P</Button>
+                          <Button>Q</Button>
+                          <Button>R</Button>
+                          <Button>S</Button>
+                          <Button>T</Button>
+                          <Button>U</Button>
+                          <Button>V</Button>
+                          <Button>W</Button>
+                          <Button>X</Button>
+                          <Button>Y</Button>
+                          <Button>Z</Button>
+                      </div>
+                  </Collapse>
+                  <TableContainer component={Paper}>
+                      <Table className={classes.table} aria-label="simple table">
+                          <TableHead>
+                              <TableRow>
+                                  <TableCell></TableCell>
+                                  <TableCell>Meaning</TableCell>
+                              </TableRow>
+                          </TableHead>
+                          <TableBody>
+                              {idioms.map((row) => (
+                                  <TableRow key={row.title}>
+                                      <TableCell component="th" scope="row">
+                                          {row.title}
+                                      </TableCell>
+                                      <TableCell>{row.meaning}</TableCell>
+                                  </TableRow>
+                              ))}
+                          </TableBody>
+                      </Table>
+                  </TableContainer>
+              </Paper>
+          </Container>
+      </CssBaseline>
   );
 }
 
