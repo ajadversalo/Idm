@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ajadv\\source\\repos\\Idioms\\Idioms\\Idioms.csproj": {}
+    "C:\\Users\\AJ\\source\\repos\\Idm\\Idioms\\Idioms.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ajadv\\source\\repos\\Idioms\\Idioms\\Idioms.csproj": {
+    "C:\\Users\\AJ\\source\\repos\\Idm\\Idioms\\Idioms.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ajadv\\source\\repos\\Idioms\\Idioms\\Idioms.csproj",
+        "projectUniqueName": "C:\\Users\\AJ\\source\\repos\\Idm\\Idioms\\Idioms.csproj",
         "projectName": "Idioms",
-        "projectPath": "C:\\Users\\ajadv\\source\\repos\\Idioms\\Idioms\\Idioms.csproj",
-        "packagesPath": "C:\\Users\\ajadv\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ajadv\\source\\repos\\Idioms\\Idioms\\obj\\",
+        "projectPath": "C:\\Users\\AJ\\source\\repos\\Idm\\Idioms\\Idioms.csproj",
+        "packagesPath": "C:\\Users\\AJ\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\AJ\\source\\repos\\Idm\\Idioms\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ajadv\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\AJ\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

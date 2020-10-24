@@ -1,19 +1,26 @@
-import React, { useEffect }from 'react';
+import React, { useEffect, useState }from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+    const [idioms, setIdioms] = useState([]);
+
     useEffect(() => {
         fetch('https://localhost:44380/api/idiom/GetIdioms', {
             method: 'GET',
             headers: { "content-type": "application/json" }
         }).then(res => res.json())
-            .then(data => { console.log('data', data) })
+            .then(data => { setIdioms(data); })
             .catch((error) => {
                 alert(error)
             })
     }, [])
 
+    useEffect(() => {
+        if (idioms && idioms.length > 0) {
+            console.log('Idioms', idioms);
+        }
+    }, [idioms]);
 
   return (
     <div className="App">
