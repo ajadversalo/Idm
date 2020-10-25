@@ -29,8 +29,15 @@ const useStyles = makeStyles((theme) => ({
         padding: '2rem'
     },
     table: {
-        minWidth: 650,
+        minWidth: '650px',
+        borderRadius: 1
     },
+    tableContainer: {
+        
+    },
+    alphabetRoot: {
+        padding: '1rem 0'
+    }
 }));
 
 function App() {
@@ -61,9 +68,7 @@ function App() {
 
     }
 
-    const handleChange = () => {
-
-    }
+    const handleChange = (e) => { setChecked(!checked) }
 
     const AlphabetButtons = () => {
         let buttons = [];
@@ -75,9 +80,9 @@ function App() {
         }
 
         return (
-            <div>
-                {buttons.map((button) => {
-                    return (<Button>{button}</Button>);
+            <div className={classes.alphabetRoot}>
+                {buttons.map((button, index) => {
+                    return (<Button key={'button'+ index}>{button}</Button>);
                 })}
             </div>
             );
@@ -95,12 +100,14 @@ function App() {
                           label='Show A-Z Index'
                       />
                   </div>
-                  <Collapse in={true}>
+
+                  <Collapse in={checked}>
                       <div style={{ textAlign: 'center' }}>
                           <AlphabetButtons/>
                       </div>
                   </Collapse>
-                  <TableContainer component={Paper}>
+
+                  <div className={classes.tableContainer}>
                       <Table className={classes.table} aria-label="simple table">
                           <TableHead>
                               <TableRow>
@@ -119,7 +126,7 @@ function App() {
                               ))}
                           </TableBody>
                       </Table>
-                  </TableContainer>
+                    </div>
               </Paper>
           </Container>
       </CssBaseline>
