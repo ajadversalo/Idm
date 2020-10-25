@@ -85,8 +85,8 @@ function App() {
 
   return (
       <CssBaseline>
-          <Container maxWidth="md" style={{ height: '80vh' }}>
-              <Paper elevation={4} className={classes.paper} style={{ height: '100%' }}>
+          <Container maxWidth="md" style={{ height: '90vh' }}>
+              <Paper elevation={1} className={classes.paper} style={{ height: '100%' }}>
                   <Typography variant='h2'>Idioms</Typography>
                   <TextField id='standard-basic' label="Search idiom's title, meaning or keyword" style={{ width: '100%' }} onChange={handleSearchChange} />
                   <div style={{ width: '100%', textAlign: 'right' }}>
