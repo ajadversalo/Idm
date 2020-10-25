@@ -65,52 +65,46 @@ function App() {
 
     }
 
+    const AlphabetButtons = () => {
+        let buttons = [];
+        const FirstLetterKeyCode = 97;
+        const LastLetterKeyCode = 122;
+
+        for (let i = FirstLetterKeyCode; i <= LastLetterKeyCode; i++) {
+            buttons.push(String.fromCharCode(i));
+        }
+
+        return (
+            <div>
+                {buttons.map((button) => {
+                    return (<Button>{button}</Button>);
+                })}
+            </div>
+            );
+    }
+
   return (
       <CssBaseline>
           <Container maxWidth="md" style={{ height: '80vh' }}>
               <Paper elevation={4} className={classes.paper} style={{ height: '100%' }}>
-                  <TextField id="standard-basic" label="Search title, meaning or keyword" style={{ width: '100%' }} onChange={handleSearchChange} />
+                  <Typography variant='h2'>Idioms</Typography>
+                  <TextField id='standard-basic' label="Search idiom's title, meaning or keyword" style={{ width: '100%' }} onChange={handleSearchChange} />
                   <div style={{ width: '100%', textAlign: 'right' }}>
                       <FormControlLabel
                           control={<Switch checked={checked} onChange={handleChange} />}
-                          label="A-Z Index"
+                          label='Show A-Z Index'
                       />
                   </div>
-                  <Collapse in={checked}>
+                  <Collapse in={true}>
                       <div style={{ textAlign: 'center' }}>
-                          <Button>A</Button>
-                          <Button>B</Button>
-                          <Button>C</Button>
-                          <Button>D</Button>
-                          <Button>E</Button>
-                          <Button>F</Button>
-                          <Button>G</Button>
-                          <Button>H</Button>
-                          <Button>I</Button>
-                          <Button>J</Button>
-                          <Button>K</Button>
-                          <Button>L</Button>
-                          <Button>M</Button>
-                          <Button>N</Button>
-                          <Button>O</Button>
-                          <Button>P</Button>
-                          <Button>Q</Button>
-                          <Button>R</Button>
-                          <Button>S</Button>
-                          <Button>T</Button>
-                          <Button>U</Button>
-                          <Button>V</Button>
-                          <Button>W</Button>
-                          <Button>X</Button>
-                          <Button>Y</Button>
-                          <Button>Z</Button>
+                          <AlphabetButtons/>
                       </div>
                   </Collapse>
                   <TableContainer component={Paper}>
                       <Table className={classes.table} aria-label="simple table">
                           <TableHead>
                               <TableRow>
-                                  <TableCell></TableCell>
+                                  <TableCell>Title</TableCell>
                                   <TableCell>Meaning</TableCell>
                               </TableRow>
                           </TableHead>
